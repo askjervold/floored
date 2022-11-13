@@ -35,7 +35,7 @@ function Floor(props: Dimensions) {
               key={`${i}:${length}`}
               height={plankWidth}
               width={length}
-              dark={i % 2 === 1}
+              dark={length < plankLength}
             />
           ))}
         </Row>
