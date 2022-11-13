@@ -1,9 +1,12 @@
-export type Dimensions = {
-  roomWidth: number;
-  roomLength: number;
+export type FlooringDetails = {
   plankWidth: number;
   plankLength: number;
 };
+
+export type Dimensions = {
+  roomWidth: number;
+  roomLength: number;
+} & FlooringDetails;
 
 export function getRows({
   roomWidth,
