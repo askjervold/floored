@@ -8,6 +8,8 @@ export type Dimensions = {
   roomLength: number;
 } & FlooringDetails;
 
+const MINIMUM_PIECE_LENGTH = 300;
+
 export function getRows({
   roomWidth,
   roomLength,
@@ -24,7 +26,7 @@ export function getRows({
     let rowLength = 0;
     while (rowLength < roomLength) {
       let pieceLength = 0;
-      if (remainder) {
+      if (remainder && remainder >= MINIMUM_PIECE_LENGTH) {
         pieceLength = remainder;
         remainder = 0;
       } else if (rowLength + plankLength > roomLength) {
