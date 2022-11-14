@@ -20,6 +20,10 @@ const Board = styled.div<BoardProps>`
   background-color: ${(props) => (props.dark ? "burlywood" : "beige")};
   border: dashed 1px black;
   border-width: 0 1px 1px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
 `;
 
 function Floor(props: Dimensions) {
@@ -36,7 +40,9 @@ function Floor(props: Dimensions) {
               height={plankWidth}
               width={length}
               dark={length < plankLength}
-            />
+            >
+              {length}
+            </Board>
           ))}
         </Row>
       ))}
