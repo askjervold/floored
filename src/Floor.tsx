@@ -2,11 +2,13 @@ import styled from "styled-components";
 import { Dimensions, getRows } from "./utils";
 
 type BoxProps = { height: number; width: number };
+type FloorProps = { rows: number } & BoxProps;
 type BoardProps = { dark: boolean } & BoxProps;
 
-const FloorContainer = styled.div<BoxProps>`
-  height: ${(props) => props.height}px;
-  width: ${(props) => props.width}px;
+const FloorContainer = styled.div<FloorProps>`
+  margin: 1rem;
+  height: ${(props) => props.height * 2 + props.rows}px;
+  width: ${(props) => props.width * 2}px;
   border: solid 1px gray;
 `;
 
@@ -15,15 +17,15 @@ const Row = styled.div`
 `;
 
 const Board = styled.div<BoardProps>`
-  height: ${(props) => props.height}px;
-  width: ${(props) => props.width}px;
+  height: ${(props) => props.height * 2}px;
+  width: ${(props) => props.width * 2}px;
   background-color: ${(props) => (props.dark ? "burlywood" : "beige")};
   border: dashed 1px black;
   border-width: 0 1px 1px 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 1rem;
 `;
 
 function Floor(props: Dimensions) {
@@ -31,7 +33,7 @@ function Floor(props: Dimensions) {
   const rows = getRows({ roomLength, roomWidth, plankLength, plankWidth });
 
   return (
-    <FloorContainer height={roomWidth} width={roomLength}>
+    <FloorContainer height={roomWidth} width={roomLength} rows={rows.length}>
       {rows.map((row, rowIdx) => (
         <Row key={`${JSON.stringify(props)}-row${rowIdx}`}>
           {row.map((length, i) => (

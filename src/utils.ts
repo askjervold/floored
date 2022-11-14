@@ -8,7 +8,7 @@ export type Dimensions = {
   roomLength: number;
 } & FlooringDetails;
 
-const MINIMUM_PIECE_LENGTH = 300;
+const MINIMUM_PIECE_LENGTH = 30;
 
 export function getRows({
   roomWidth,

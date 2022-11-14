@@ -15,17 +15,17 @@ const InputGroup = styled.div`
 `;
 
 function App() {
-  const [roomLength, setRoomLength] = useState<number>(3060);
-  const [roomWidth, setRoomWidth] = useState<number>(2990);
-  const [plankLength, setPlankLength] = useState<number>(1380);
-  const [plankWidth, setPlankWidth] = useState<number>(212);
+  const [roomLength, setRoomLength] = useState<number>(306);
+  const [roomWidth, setRoomWidth] = useState<number>(299);
+  const [plankLength, setPlankLength] = useState<number>(138);
+  const [plankWidth, setPlankWidth] = useState<number>(21.2);
   const [flooringDetails, setFlooringDetails] = useState<FlooringDetails>({
-    plankLength: 1380,
-    plankWidth: 212,
+    plankLength: 138,
+    plankWidth: 21.2,
   });
 
   function updateDimension(event: any, setter: Dispatch<any>) {
-    setter(parseInt(event.target.value, 10));
+    setter(parseFloat(event.target.value));
   }
 
   return (
