@@ -36,14 +36,14 @@ function Floor(props: Dimensions) {
     <FloorContainer height={roomWidth} width={roomLength} rows={rows.length}>
       {rows.map((row, rowIdx) => (
         <Row key={`${JSON.stringify(props)}-row${rowIdx}`}>
-          {row.map((length, i) => (
+          {row.lengths.map((length, i) => (
             <Board
               key={`${i}:${length}`}
-              height={plankWidth}
+              height={row.width}
               width={length}
               dark={length < plankLength}
             >
-              {length}
+              {row.width !== plankWidth ? `${length}x${row.width}` : length}
             </Board>
           ))}
         </Row>
